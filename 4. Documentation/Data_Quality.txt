@@ -1,0 +1,93 @@
+# Data Quality Validation
+
+## Overview
+
+Before performing analysis, the raw Uber trip and location datasets were
+validated using SQL Server.
+
+The validation process focused on:
+
+- Data completeness
+- Duplicate records
+- Data type consistency
+- Referential integrity
+- Business-rule validation
+
+## Dataset Summary
+
+| Dataset | Records |
+|---|---:|
+| Trip Details | 103,728 |
+| Location Table | 265 |
+
+## Validation Results
+
+| Validation Check | Invalid Records | Status |
+|---|---:|:---:|
+| NULL Trip IDs | 0 | ✅ Passed |
+| NULL Pickup Time | 0 | ✅ Passed |
+| NULL Drop-off Time | 0 | ✅ Passed |
+| NULL Passenger Count | 0 | ✅ Passed |
+| NULL Trip Distance | 0 | ✅ Passed |
+| NULL Pickup Location ID | 0 | ✅ Passed |
+| NULL Fare Amount | 0 | ✅ Passed |
+| Duplicate Trip IDs | 0 | ✅ Passed |
+| Duplicate Location IDs | 0 | ✅ Passed |
+| Non-integer Trip IDs | 0 | ✅ Passed |
+| Non-integer Pickup Location IDs | 0 | ✅ Passed |
+| Non-integer Drop-off Location IDs | 0 | ✅ Passed |
+| NULL Location IDs | 0 | ✅ Passed |
+| NULL Location Names | 0 | ✅ Passed |
+| NULL Cities | 0 | ✅ Passed |
+| Orphan Pickup Location IDs | 0 | ✅ Passed |
+| Orphan Drop-off Location IDs | 0 | ✅ Passed |
+| Negative Passenger Counts | 0 | ✅ Passed |
+| Negative Trip Distances | 0 | ✅ Passed |
+| Negative Fare Amounts | 0 | ✅ Passed |
+| Negative Surge Fees | 0 | ✅ Passed |
+
+## Validation Categories
+
+### 1. Completeness
+
+Critical trip and location fields were checked for NULL values.
+
+No NULL values were identified in the validated fields.
+
+### 2. Uniqueness
+
+Trip IDs and Location IDs were checked for duplicate records.
+
+No duplicate identifiers were identified.
+
+### 3. Data Type Validation
+
+Trip IDs, pickup location IDs and drop-off location IDs were checked
+to ensure that identifier values were valid integers.
+
+No invalid non-integer identifiers were identified.
+
+### 4. Referential Integrity
+
+Pickup and drop-off location IDs were compared against the location
+master table.
+
+No orphan pickup or drop-off location IDs were identified.
+
+### 5. Business Rule Validation
+
+The following conditions were checked:
+
+- Passenger count < 0
+- Trip distance < 0
+- Fare amount < 0
+- Surge fee < 0
+
+No records violated these business rules.
+
+## Conclusion
+
+The validated dataset contained 103,728 trip records and 265 location
+records. All critical data quality checks returned zero invalid records,
+allowing the dataset to proceed to SQL transformation and analytical
+modelling.

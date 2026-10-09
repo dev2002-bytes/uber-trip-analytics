@@ -1,0 +1,141 @@
+UBER TRIP ANALYTICS — BUSINESS INSIGHTS
+
+==================================================
+1. EXECUTIVE INSIGHTS
+==================================================
+
+The dataset contains 103,728 Uber trips generating approximately
+$1.55M in trip revenue.
+
+Average trip fare is $14.98, while the average trip distance is
+3.36 miles and average trip duration is approximately 16 minutes.
+
+Revenue per mile is approximately $4.45.
+
+
+==================================================
+2. DEMAND INSIGHTS
+==================================================
+
+Weekend demand is significantly stronger than weekday demand.
+
+Saturday records approximately 18.7K trips and Sunday records
+approximately 19.2K trips, making Sunday the highest-demand day
+in the dataset.
+
+Friday has the lowest demand at approximately 9.3K trips.
+
+Hourly analysis shows that trip demand increases substantially
+during the daytime and afternoon/evening period compared with
+the early-morning hours.
+
+
+==================================================
+3. REVENUE INSIGHTS
+==================================================
+
+Total trip revenue is approximately $1.55M.
+
+UberX generates the highest revenue among the vehicle categories,
+with approximately $583.9K in trip revenue.
+
+UberX also records the highest trip volume with 38,744 trips.
+
+Average trip fare across the dataset is $14.98.
+
+
+==================================================
+4. VEHICLE INSIGHTS
+==================================================
+
+UberX is the highest-volume vehicle category with 38,744 trips.
+
+Vehicle trip volumes:
+
+UberX          38,744
+Uber Comfort   17,078
+Uber Black     16,710
+UberXL         16,698
+Uber Green     14,498
+
+UberX therefore represents the largest contributor to overall
+trip demand.
+
+
+==================================================
+5. LOCATION INSIGHTS
+==================================================
+
+Penn Station/Madison Sq West is the most frequent pickup location
+in the dashboard analysis.
+
+Upper East Side North is the most frequent drop-off location.
+
+The longest trip identified in the dashboard is:
+
+Pickup:
+Lower East Side
+
+Drop-off:
+Crown Heights North
+
+Distance:
+144.1 miles
+
+Pickup demand is concentrated among a relatively small number
+of high-volume locations.
+
+
+==================================================
+6. PAYMENT INSIGHTS
+==================================================
+
+Uber Pay is the dominant payment method.
+
+Approximately:
+
+Uber Pay       67.0%
+Cash           32.2%
+Amazon Pay      0.6%
+
+Google Pay represents a very small share of trips.
+
+The results indicate that digital payment adoption is substantially
+higher than cash usage in this dataset.
+
+
+==================================================
+7. DAY/NIGHT INSIGHTS
+==================================================
+
+Day trips account for approximately 72.8% of all trips.
+
+Night trips account for approximately 27.2%.
+
+Therefore, the majority of observed demand occurs during the
+daytime period.
+
+
+==================================================
+8. OPERATIONAL RECOMMENDATIONS
+==================================================
+
+1. Prioritize vehicle availability during high-demand weekend
+   periods, particularly Saturday and Sunday.
+
+2. Focus driver supply around high-volume pickup locations such
+   as Penn Station/Madison Sq West.
+
+3. Maintain strong UberX availability because UberX contributes
+   the highest trip volume and revenue among the analyzed vehicle
+   categories.
+
+4. Prioritize operational planning around daytime and afternoon/
+   evening demand peaks.
+
+5. Continue supporting digital payment adoption because Uber Pay
+   represents the majority of transactions.
+
+6. Monitor unusually long trips separately because extreme-distance
+   trips can materially affect revenue, distance and operational
+   efficiency metrics.

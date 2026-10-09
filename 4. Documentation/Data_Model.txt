@@ -1,0 +1,213 @@
+UBER TRIP ANALYTICS — DATA MODEL
+
+==================================================
+MODEL TYPE
+==================================================
+
+Star-schema-style dimensional model.
+
+The model consists of:
+
+1. FactTrips
+2. DimDate
+3. DimPickup
+4. DimDropoff
+5. Measures Table
+
+
+==================================================
+FACT TABLE
+==================================================
+
+FactTrips
+
+Grain:
+One row represents one Uber trip.
+
+Contains trip-level:
+
+- TripID
+- PickupTime
+- DropOffTime
+- PassengerCount
+- TripDistance
+- FareAmount
+- SurgeFee
+- Vehicle
+- PaymentType
+- PULocationID
+- DOLocationID
+- TripDurationMinutes
+- AverageSpeedMPH
+- Date
+
+
+==================================================
+DIMENSION TABLES
+==================================================
+
+DimDate
+
+Purpose:
+Provides calendar attributes for time-based analysis.
+
+Key:
+Date
+
+
+DimPickup
+
+Purpose:
+Describes the pickup location associated with each trip.
+
+Key:
+PULocationID
+
+Attributes:
+- PickupLocation
+- PickupCity
+
+
+DimDropoff
+
+Purpose:
+Describes the drop-off location associated with each trip.
+
+Key:
+DOLocationID
+
+Attributes:
+- DropoffLocation
+- DropoffCity
+
+
+==================================================
+RELATIONSHIPS
+==================================================
+
+DimDate
+    1
+    |
+    | 
+    *
+FactTrips
+
+
+DimPickup
+    1
+    |
+    |
+    *
+FactTrips
+
+
+DimDropoff
+    1
+    |
+    |
+    *
+FactTrips
+
+
+Relationship characteristics:
+
+- One-to-many relationships
+- Single-direction filtering from dimensions to fact
+- Dimension keys are unique
+- Fact table contains repeated foreign keys
+
+
+==================================================
+ROLE-PLAYING LOCATION DIMENSION
+==================================================
+
+The original location data represents both pickup and
+drop-off locations.
+
+To support both analytical roles, the location data was
+represented as:
+
+- DimPickup
+- DimDropoff
+
+This allows pickup and drop-off analysis independently.
+
+
+==================================================
+SQL → POWER BI PIPELINE
+==================================================
+
+Raw Trip Details
+        |
+        v
+SQL Data Quality Validation
+        |
+        v
+vw_TripDetails
+        |
+        +--------------------+
+                             |
+Raw Location Table           |
+        |                    |
+        v                    |
+vw_Locations                 |
+        |                    |
+        +---------+----------+
+                  |
+                  v
+          vw_TripAnalysis
+                  |
+                  v
+              Power BI
+                  |
+                  v
+       Fact + Dimension Model
+                  |
+                  v
+             DAX Measures
+                  |
+                  v
+             Dashboard
+
+
+==================================================
+MEASURE ORGANIZATION
+==================================================
+
+Core analytical measures are stored separately from
+the fact table.
+
+Examples:
+
+- Total Trips
+- Total Trip Revenue
+- Avg Trip Fare
+- Avg Trip Distance
+- Avg Trip Duration
+- Revenue per Mile
+
+
+==================================================
+MODEL OBJECTIVE
+==================================================
+
+The model separates:
+
+FACTS
+Trip-level measurable events
+
+from
+
+DIMENSIONS
+Descriptive attributes used to filter and analyze those
+events.
+
+This structure supports interactive analysis of:
+
+- Trip demand
+- Revenue
+- Vehicle performance
+- Payment behavior
+- Time patterns
+- Pickup locations
+- Drop-off locations

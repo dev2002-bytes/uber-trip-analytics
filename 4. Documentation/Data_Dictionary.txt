@@ -1,0 +1,74 @@
+UBER TRIP ANALYTICS — DATA DICTIONARY
+
+==================================================
+1. TRIP DETAILS / FACT TABLE
+==================================================
+
+Column                  Description
+--------------------------------------------------
+TripID                  Unique identifier for each trip
+PickupTime              Date and time when the trip started
+DropOffTime             Date and time when the trip ended
+PassengerCount          Number of passengers in the trip
+TripDistance            Distance travelled during the trip, in miles
+PULocationID            Pickup location identifier
+DOLocationID            Drop-off location identifier
+FareAmount              Fare/revenue associated with the trip
+SurgeFee                Surge fee charged for the trip
+Vehicle                 Vehicle/service category
+PaymentType             Payment method used for the trip
+TripDurationMinutes     Duration of the trip in minutes
+AverageSpeedMPH         Calculated average trip speed in miles per hour
+Date                    Trip date used for date-based analysis
+PickupHour              Hour extracted from PickupTime
+PickupDay               Day name extracted from PickupTime
+PickupMonth             Month extracted from PickupTime
+PickupDayOfMonth        Day of month extracted from PickupTime
+TripType                Day Trip or Night Trip classification
+
+
+==================================================
+2. LOCATION TABLE / DIMENSION
+==================================================
+
+Column                  Description
+--------------------------------------------------
+LocationID              Unique identifier for a location
+Location                Location/neighborhood name
+City                    City associated with the location
+
+
+==================================================
+3. DERIVED / ANALYTICAL FIELDS
+==================================================
+
+Field                   Purpose
+--------------------------------------------------
+TripDurationMinutes     Measures how long each trip took
+PickupHour              Supports hourly demand analysis
+PickupDay               Supports weekday analysis
+PickupMonth             Supports monthly analysis
+PickupDayOfMonth        Supports daily trend analysis
+AverageSpeedMPH         Measures trip speed/efficiency
+TripType                Compares day versus night demand
+
+
+==================================================
+4. KEY IDENTIFIERS
+==================================================
+
+TripID                  Primary identifier at trip level
+LocationID              Primary identifier at location level
+PULocationID            Foreign key to pickup location
+DOLocationID            Foreign key to drop-off location
+
+
+==================================================
+5. DATASET GRAIN
+==================================================
+
+Trip Details:
+One row represents one Uber trip.
+
+Location Table:
+One row represents one location.

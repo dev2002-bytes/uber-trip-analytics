@@ -1,0 +1,19 @@
+# Raw datasets
+1. Raw_Data/*.xlsx
+1. Raw_Data/*.csv
+
+# Power BI temporary/backup files
+*.pbit
+*.tmp
+~$*
+
+# Power BI local/cache files
+.cache/
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Personal/local files
+*.log
